@@ -31,7 +31,7 @@
 'use strict';
 const $=id=>document.getElementById(id), fee=10, uma=[20,10,-10,-20], KEY='mahjong-score-v1';
 const state={games:load(),edit:-1,auto:-1,active:0,pending:null,ties:[],orders:{},armed:null,timer:null};
-for(let i=0;i<4;i++){const row=document.createElement('div');row.className='person';row.innerHTML='<input id="name'+i+'" value="プレイヤー'+(i+1)+'" maxlength="12" aria-label="名前'+(i+1)+'"><input id="score'+i+'" class="score" type="text" inputmode="none" readonly aria-label="素点'+(i+1)+'">';$('inputs').appendChild(row)}
+for(let i=0;i<4;i++){const row=document.createElement('div');row.className='person';row.innerHTML='<input id="name'+i+'" value="P'+(i+1)+'" maxlength="12" aria-label="名前'+(i+1)+'"><input id="score'+i+'" class="score" type="text" inputmode="none" readonly aria-label="素点'+(i+1)+'">';$('inputs').appendChild(row)}
 function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(x)?x:[]}catch(e){return[]}}
 function persist(){localStorage.setItem(KEY,JSON.stringify(state.games))}
 function score(i){return $('score'+i)} function fields(){return [0,1,2,3].map(score)}
